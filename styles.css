@@ -1,0 +1,344 @@
+/* Variables CSS para una gestión de colores sencilla */
+:root {
+    --primary-green: #09006d; /* Tono Azul/Índigo Principal (Tu nuevo color) */
+    --secondary-blue: #3498db; /* Azul cielo/agua */
+    --accent-orange: #e67e22; /* Naranja energético */
+    --text-dark: #2c3e50; /* Gris oscuro para texto principal */
+    --text-light: #ecf0f1; /* Gris claro para texto en fondos oscuros */
+    --bg-light: #fdfdfd; /* Fondo claro general */
+    --bg-dark-footer: #09006d; /* Azul/Índigo para footer/header */
+    --card-bg: #ededed; /* Fondo de tarjetas o secciones */
+    --border-color: #cccdec; /* Color de borde sutil */
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos Generales y Reseteo */
+html {
+    scroll-behavior: smooth; /* Desplazamiento suave para anclas */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif; /* Fuente moderna y limpia */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--card-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden; /* Previene scroll horizontal */
+}
+
+/* Encabezado */
+header {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-blue) 100%); /* Degradado deportivo */
+    color: var(--text-light);
+    text-align: center;
+    padding: 2.5rem 1rem;
+    box-shadow: 0 4px 15px var(--shadow-medium);
+    position: relative;
+    overflow: hidden; /* Para pseudo-elementos de patrones */
+}
+
+header::before { /* Patrón animalista sutil - hojas o naturaleza */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="25" cy="25" r="5" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="5" fill="%23ffffff" opacity="0.1"/><path d="M50 0 L60 20 L40 20 Z" fill="%23ffffff" opacity="0.05"/><path d="M50 100 L60 80 L40 80 Z" fill="%23ffffff" opacity="0.05"/></svg>') repeat; /* Pequeños círculos/triángulos como hojas */
+    background-size: 50px 50px;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+header h1 {
+    font-family: 'Poppins', sans-serif; /* Fuente para título, más impactante */
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px var(--shadow-medium);
+    position: relative;
+    z-index: 2; /* Para que el texto esté sobre el patrón */
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    position: relative;
+    z-index: 2;
+}
+
+/* Selector de Idioma */
+.language-selector {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100; /* Asegura que esté por encima de todo */
+}
+
+.language-selector select {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    -webkit-appearance: none; /* Eliminar estilo por defecto en WebKit */
+    -moz-appearance: none; /* Eliminar estilo por defecto en Firefox */
+    appearance: none; /* Eliminar estilo por defecto */
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'); /* Flecha personalizada */
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 20px;
+    padding-right: 30px; /* Espacio para la flecha */
+}
+
+.language-selector select:hover {
+    background-color: rgba(1, 26, 189, 0.99);
+    border-color: #09006d;
+    border-radius: 5%;
+}
+
+/* Contenido Principal (TARJETA) */
+main {
+    flex: 1;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 30px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    
+    /* PROPIEDADES DE TARJETA MEJORADA */
+    border: 1px solid var(--border-color); /* Borde sutil */
+    box-shadow: 0 10px 30px var(--shadow-medium); /* Sombra más grande y visible */
+    
+    position: relative;
+    overflow: hidden; 
+}
+
+h2 {
+    text-align: center;
+    color: var(--primary-green);
+    margin-bottom: 25px;
+    font-size: 2rem;
+    position: relative;
+}
+
+h2::after { /* Subrayado moderno y dinámico */
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-green) 0%, var(--accent-orange) 100%);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Formularios y Grupos */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 1.05rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    width: calc(100% - 20px); /* Ajuste para padding */
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: var(--bg-light);
+}
+
+input:focus, select:focus {
+    /* Ajustado para usar el nuevo primary-green/azul índigo */
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(9, 0, 109, 0.2); /* Sombra con el color primario */
+    outline: none;
+}
+
+/* Botones */
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--primary-green);
+    color: var(--text-light);
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+button:hover {
+    /* Ajustado para oscurecer el primary-green (azul/índigo) en el hover */
+    background-color: #06004b;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Mensajes de Error y Éxito */
+.error {
+    color: #e74c3c; /* Rojo de error */
+    font-size: 0.95rem;
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    padding: 8px;
+    background-color: rgba(231, 76, 60, 0.1);
+    border-radius: 5px;
+    display: none; /* Por defecto oculto */
+}
+
+.success {
+    /* Ajustado a un color visible para el éxito (verde estándar) */
+    color: #27ae60;
+    font-size: 0.95rem;
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    padding: 8px;
+    background-color: rgba(39, 174, 96, 0.1);
+    border-radius: 5px;
+    display: none; /* Por defecto oculto */
+}
+
+/* Pie de Página */
+footer {
+    background-color: var(--bg-dark-footer);
+    color: var(--text-light);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+    margin-top: 40px;
+    box-shadow: 0 -4px 15px var(--shadow-medium);
+}
+
+/* Diseño Responsivo (Mobile First) */
+@media (max-width: 768px) {
+    header {
+        padding: 2rem 1rem;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .language-selector {
+        top: 10px;
+        right: 10px;
+    }
+
+    .language-selector select {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+        padding-right: 25px;
+    }
+
+    main {
+        margin: 20px auto;
+        padding: 20px;
+        max-width: 95%;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+        margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select,
+    button {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+input[type="tel"] {
+    width: calc(100% - 20px); /* Ajuste para padding */
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: var(--bg-light);
+}
+
+/* Estilo para el campo de código de 6 dígitos */
+#verification-code {
+    /* Opcional: Centrar el texto para un código corto */
+    text-align: center;
+    /* Opcional: Limitar el ancho para que se vea como un campo de código corto */
+    max-width: 200px;
+    margin: 0 auto 15px auto; /* Centrar el bloque y darle margen */
+    display: block; /* Necesario para que max-width y margin: auto funcionen */
+}
+
+/* Estilo para el enlace de Reenviar Código */
+.resend-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.95rem;
+}
+
+.resend-link a {
+    color: var(--secondary-blue); /* Usamos el azul secundario para el enlace */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.resend-link a:hover {
+    color: var(--primary-green);
+    text-decoration: underline;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CicloGoo - Bicycle Rental</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Selector de idioma -->
+    <div class="language-selector">
+        <select id="language" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+            <option value="ru">Русский</option>
+            <option value="zh">中文</option>
+        </select>
+    </div>
+
+    <!-- Encabezado -->
+    <header>
+        <h1 data-i18n="title">CicloGoo</h1>
+        <p data-i18n="subtitle">Easy and Fast Bicycle Rental in Miami</p>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <!-- Sección de inicio de sesión -->
+        <section id="login-section">
+            <h2 data-i18n="login_title">Sign In</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="name" data-i18n="name_label">Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" required autocomplete="given-name">
+                </div>
+                <div class="form-group">
+                    <label for="room-number" data-i18n="room_label">Room Number</label>
+                    <input type="text" id="room-number" placeholder="Enter your room number" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone" data-i18n="phone_label">Phone</label>
+                    <input type="tel" id="phone" placeholder="Enter your number (e.g., 3055551234)" required autocomplete="tel">
+                </div>
+                <div class="form-group">
+                    <label for="email" data-i18n="email_label">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="password" data-i18n="password_label">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required autocomplete="current-password">
+                </div>
+                <p class="error" id="login-error"></p>
+                <button type="submit" data-i18n="login_button">Sign In</button>
+            </form>
+        </section>
+
+        <!-- Sección de alquiler -->
+        <section id="rental-section" style="display: none;">
+            <h2 data-i18n="rental_title">Bicycle Rental</h2>
+            <form id="rental-form">
+                <div class="form-group">
+                    <label for="bike-id" data-i18n="bike_id_label">Bicycle ID (Scan QR Code)</label>
+                    <input type="text" id="bike-id" placeholder="Scan the QR code" required>
+                </div>
+                <div class="form-group">
+                    <label for="rental-duration" data-i18n="duration_label">Rental Duration</label>
+                    <select id="rental-duration" required>
+                        <option value="" data-i18n="select_duration">Select duration</option>
+                        <option value="1" data-i18n="1_hour">1 hour</option>
+                        <option value="2" data-i18n="2_hours">2 hours</option>
+                        <option value="4" data-i18n="4_hours">4 hours</option>
+                        <option value="8" data-i18n="full_day">Full day</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="payment-method" data-i18n="payment_label">Payment Method</label>
+                    <select id="payment-method" required>
+                        <option value="" data-i18n="select_payment">Select payment method</option>
+                        <option value="credit-card" data-i18n="credit_card">Credit Card</option>
+                        <option value="debit-card" data-i18n="debit_card">Debit Card</option>
+                        <option value="paypal" data-i18n="paypal">PayPal</option>
+                    </select>
+                </div>
+                <p class="error" id="form-error" data-i18n="form_error">Please complete all fields.</p>
+                <p class="success" id="form-success" data-i18n="form_success">Payment validated! Bicycle unlocked.</p>
+                <button type="submit" data-i18n="rental_button">Confirm Rental</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p data-i18n="footer">&copy; 2025 CicloGoo. All rights reserved.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
