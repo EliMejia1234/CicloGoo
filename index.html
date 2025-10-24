@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CicloGoo - Bicycle Rental</title>
+    <title data-i18n="title">CicloGoo - Bicycle Rental</title>
+
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <script type="module" src="js/main.js"></script>
 </head>
 <body>
     <!-- Selector de idioma -->
     <div class="language-selector">
-        <select id="language" onchange="changeLanguage()">
+        <select id="language">
             <option value="en">English</option>
             <option value="es">Español</option>
-            <option value="de">Deutsch</option>
-            <option value="ru">Русский</option>
-            <option value="zh">中文</option>
         </select>
     </div>
 
@@ -25,37 +24,50 @@
         <p data-i18n="subtitle">Easy and Fast Bicycle Rental in Miami</p>
     </header>
 
-    <!-- Contenido principal -->
     <main>
         <!-- Sección de inicio de sesión -->
         <section id="login-section">
             <h2 data-i18n="login_title">Sign In</h2>
             <form id="login-form">
                 <div class="form-group">
-                    <label for="name" data-i18n="name_label">Name</label>
-                    <input type="text" id="name" placeholder="Enter your name" required autocomplete="given-name">
-                </div>
-                <div class="form-group">
-                    <label for="room-number" data-i18n="room_label">Room Number</label>
-                    <input type="text" id="room-number" placeholder="Enter your room number" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone" data-i18n="phone_label">Phone</label>
-                    <input type="tel" id="phone" placeholder="Enter your number (e.g., 3055551234)" required autocomplete="tel">
-                </div>
-                <div class="form-group">
-                    <label for="email" data-i18n="email_label">Email</label>
-                    <input type="email" id="email" placeholder="Enter your email" required autocomplete="email">
-                </div>
-                <div class="form-group">
-                    <label for="password" data-i18n="password_label">Password</label>
-                    <input type="password" id="password" placeholder="Enter your password" required autocomplete="current-password">
-                </div>
+    <label for="name" data-i18n="name_label">Name</label>
+    <input type="text" id="name" placeholder="Enter your name" required autocomplete="name">
+</div>
+<div class="form-group">
+    <label for="room-number" data-i18n="room_label">Room Number</label>
+    <input type="text" id="room-number" placeholder="Enter your room number" required autocomplete="off">
+    </div>
+<div class="form-group">
+    <label for="phone" data-i18n="phone_label">Phone</label>
+    <input type="tel" id="phone" placeholder="Enter your phone (e.g., 3055551234)" required autocomplete="tel">
+</div>
+<div class="form-group">
+    <label for="email" data-i18n="email_label">Email</label>
+    <input type="email" id="email" placeholder="Enter your email" required autocomplete="email">
+</div>
+<div class="form-group">
+    <label for="password" data-i18n="password_label">Password</label>
+    <input type="password" id="password" placeholder="Enter your password" required autocomplete="current-password">
+</div>
                 <p class="error" id="login-error"></p>
                 <button type="submit" data-i18n="login_button">Sign In</button>
             </form>
         </section>
-
+<section id="twofa-section" style="display: none;">
+    <h2 data-i18n="twofa_title">Two-Factor Verification</h2>
+    <form id="twofa-form">
+        <p data-i18n="twofa_instructions">A 6-digit code has been sent to your phone/email.</p>
+        <div class="form-group">
+            <label for="verification-code" data-i18n="code_label">Enter 6-digit Code</label>
+            <input type="text" id="verification-code" placeholder="######" maxlength="6" pattern="\d{6}" required>
+        </div>
+        <p class="error" id="twofa-error"></p>
+        <button type="submit" data-i18n="twofa_button">Verify Code</button>
+    </form>
+    <div class="resend-link">
+        <a href="#" id="resend-code" data-i18n="twofa_resend">Resend Code</a>
+    </div>
+</section>
         <!-- Sección de alquiler -->
         <section id="rental-section" style="display: none;">
             <h2 data-i18n="rental_title">Bicycle Rental</h2>
@@ -90,11 +102,9 @@
         </section>
     </main>
 
-    <!-- Pie de página -->
     <footer>
         <p data-i18n="footer">&copy; 2025 CicloGoo. All rights reserved.</p>
     </footer>
 
-    <script src="scripts.js"></script>
 </body>
 </html>

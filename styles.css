@@ -15,11 +15,11 @@
 
 /* Estilos Generales y Reseteo */
 html {
-    scroll-behavior: smooth; /* Desplazamiento suave para anclas */
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Montserrat', sans-serif; /* Fuente moderna y limpia */
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
@@ -28,41 +28,41 @@ body {
     background-color: var(--card-bg);
     color: var(--text-dark);
     line-height: 1.6;
-    overflow-x: hidden; /* Previene scroll horizontal */
+    overflow-x: hidden;
 }
 
 /* Encabezado */
 header {
-    background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-blue) 100%); /* Degradado deportivo */
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-blue) 100%);
     color: var(--text-light);
     text-align: center;
     padding: 2.5rem 1rem;
     box-shadow: 0 4px 15px var(--shadow-medium);
     position: relative;
-    overflow: hidden; /* Para pseudo-elementos de patrones */
+    overflow: hidden;
 }
 
-header::before { /* Patrón animalista sutil - hojas o naturaleza */
+header::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="25" cy="25" r="5" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="5" fill="%23ffffff" opacity="0.1"/><path d="M50 0 L60 20 L40 20 Z" fill="%23ffffff" opacity="0.05"/><path d="M50 100 L60 80 L40 80 Z" fill="%23ffffff" opacity="0.05"/></svg>') repeat; /* Pequeños círculos/triángulos como hojas */
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="25" cy="25" r="5" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="5" fill="%23ffffff" opacity="0.1"/><path d="M50 0 L60 20 L40 20 Z" fill="%23ffffff" opacity="0.05"/><path d="M50 100 L60 80 L40 80 Z" fill="%23ffffff" opacity="0.05"/></svg>') repeat;
     background-size: 50px 50px;
     opacity: 0.1;
     z-index: 1;
 }
 
 header h1 {
-    font-family: 'Poppins', sans-serif; /* Fuente para título, más impactante */
+    font-family: 'Poppins', sans-serif;
     font-size: 3.5rem;
     margin-bottom: 0.5rem;
     letter-spacing: 2px;
     text-shadow: 2px 2px 4px var(--shadow-medium);
     position: relative;
-    z-index: 2; /* Para que el texto esté sobre el patrón */
+    z-index: 2;
 }
 
 header p {
@@ -77,7 +77,8 @@ header p {
     position: absolute;
     top: 20px;
     right: 20px;
-    z-index: 100; /* Asegura que esté por encima de todo */
+    z-index: 100;
+
 }
 
 .language-selector select {
@@ -89,14 +90,14 @@ header p {
     cursor: pointer;
     font-size: 0.9rem;
     transition: background-color 0.3s ease, border-color 0.3s ease;
-    -webkit-appearance: none; /* Eliminar estilo por defecto en WebKit */
-    -moz-appearance: none; /* Eliminar estilo por defecto en Firefox */
-    appearance: none; /* Eliminar estilo por defecto */
-    background-image: url('data:image/svg+xml;utf8,<svg fill="%23ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'); /* Flecha personalizada */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
     background-repeat: no-repeat;
     background-position: right 8px center;
     background-size: 20px;
-    padding-right: 30px; /* Espacio para la flecha */
+    padding-right: 30px;
 }
 
 .language-selector select:hover {
@@ -105,22 +106,24 @@ header p {
     border-radius: 5%;
 }
 
+/* --- SECCIÓN PRINCIPAL (TARJETA) --- */
 /* Contenido Principal (TARJETA) */
 main {
     flex: 1;
-    max-width: 900px;
+    max-width: 500px;
     margin: 30px auto;
-    padding: 30px;
+    /* 🎯 CAMBIO CLAVE: Padding vertical reducido para compactar */
+    padding: 30px 80px; 
     background: var(--card-bg);
     border-radius: 12px;
     
-    /* PROPIEDADES DE TARJETA MEJORADA */
-    border: 1px solid var(--border-color); /* Borde sutil */
-    box-shadow: 0 10px 30px var(--shadow-medium); /* Sombra más grande y visible */
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 25px var(--shadow-medium); 
     
-    position: relative;
+    position: auto;
     overflow: hidden; 
 }
+/* ------------------------------------- */
 
 h2 {
     text-align: center;
@@ -130,7 +133,7 @@ h2 {
     position: relative;
 }
 
-h2::after { /* Subrayado moderno y dinámico */
+h2::after {
     content: '';
     display: block;
     width: 60px;
@@ -153,27 +156,23 @@ label {
     font-size: 1.05rem;
 }
 
+/* --- CAMPOS DE ENTRADA (MÁS GRANDES) --- */
 input[type="text"],
 input[type="email"],
 input[type="password"],
+input[type="tel"], /* ¡Asegúrate de incluir este! */
 select {
-    width: calc(100% - 20px); /* Ajuste para padding */
-    padding: 12px;
-    margin-bottom: 10px;
+    width: calc(100% - 24px); 
+    padding: 10px; /* 🎯 CAMBIO CLAVE: Más relleno (más alto) */
+    margin-bottom: 8px;
     border: 1px solid var(--border-color);
     border-radius: 8px;
     box-sizing: border-box;
-    font-size: 1rem;
+    font-size: 1.1rem; /* 🎯 CAMBIO CLAVE: Texto más grande */
     transition: all 0.3s ease;
     background-color: var(--bg-light);
 }
-
-input:focus, select:focus {
-    /* Ajustado para usar el nuevo primary-green/azul índigo */
-    border-color: var(--primary-green);
-    box-shadow: 0 0 0 3px rgba(9, 0, 109, 0.2); /* Sombra con el color primario */
-    outline: none;
-}
+/* ----------------------------------------- */
 
 /* Botones */
 button {
@@ -191,7 +190,6 @@ button {
 }
 
 button:hover {
-    /* Ajustado para oscurecer el primary-green (azul/índigo) en el hover */
     background-color: #06004b;
     transform: translateY(-2px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
@@ -204,7 +202,7 @@ button:active {
 
 /* Mensajes de Error y Éxito */
 .error {
-    color: #e74c3c; /* Rojo de error */
+    color: #e74c3c;
     font-size: 0.95rem;
     text-align: center;
     margin-top: -10px;
@@ -212,11 +210,10 @@ button:active {
     padding: 8px;
     background-color: rgba(231, 76, 60, 0.1);
     border-radius: 5px;
-    display: none; /* Por defecto oculto */
+    display: none;
 }
 
 .success {
-    /* Ajustado a un color visible para el éxito (verde estándar) */
     color: #27ae60;
     font-size: 0.95rem;
     text-align: center;
@@ -225,7 +222,7 @@ button:active {
     padding: 8px;
     background-color: rgba(39, 174, 96, 0.1);
     border-radius: 5px;
-    display: none; /* Por defecto oculto */
+    display: none;
 }
 
 /* Pie de Página */
@@ -266,7 +263,8 @@ footer {
 
     main {
         margin: 20px auto;
-        padding: 20px;
+        /* REDUCCIÓN: Ajuste de padding en móvil */
+        padding: 15px 20px; 
         max-width: 95%;
     }
 
@@ -275,12 +273,14 @@ footer {
         margin-bottom: 20px;
     }
 
+    /* Ajuste de inputs en móvil para mantener la proporción */
     input[type="text"],
     input[type="email"],
     input[type="password"],
+    input[type="tel"],
     select,
     button {
-        padding: 12px;
+        padding: 10px; 
         font-size: 1rem;
     }
 }
@@ -302,26 +302,13 @@ footer {
         font-size: 1.5rem;
     }
 }
-input[type="tel"] {
-    width: calc(100% - 20px); /* Ajuste para padding */
-    padding: 12px;
-    margin-bottom: 10px;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    box-sizing: border-box;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    background-color: var(--bg-light);
-}
 
 /* Estilo para el campo de código de 6 dígitos */
 #verification-code {
-    /* Opcional: Centrar el texto para un código corto */
     text-align: center;
-    /* Opcional: Limitar el ancho para que se vea como un campo de código corto */
     max-width: 200px;
-    margin: 0 auto 15px auto; /* Centrar el bloque y darle margen */
-    display: block; /* Necesario para que max-width y margin: auto funcionen */
+    margin: 0 auto 15px auto;
+    display: block;
 }
 
 /* Estilo para el enlace de Reenviar Código */
@@ -332,7 +319,7 @@ input[type="tel"] {
 }
 
 .resend-link a {
-    color: var(--secondary-blue); /* Usamos el azul secundario para el enlace */
+    color: var(--secondary-blue);
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
