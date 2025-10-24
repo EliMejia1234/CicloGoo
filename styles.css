@@ -86,7 +86,7 @@ header p {
     color: var(--text-light);
     border: 1px solid rgba(255, 255, 255, 0.4);
     padding: 8px 12px;
-    border-radius: 20px;
+    border-radius: 50px;
     cursor: pointer;
     font-size: 0.9rem;
     transition: background-color 0.3s ease, border-color 0.3s ease;
@@ -103,7 +103,7 @@ header p {
 .language-selector select:hover {
     background-color: rgba(1, 26, 189, 0.99);
     border-color: #09006d;
-    border-radius: 5%;
+   
 }
 
 /* --- SECCIÓN PRINCIPAL (TARJETA) --- */
